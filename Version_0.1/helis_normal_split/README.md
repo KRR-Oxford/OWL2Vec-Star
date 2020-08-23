@@ -1,3 +1,5 @@
+unzip files.tar.gz
+
 train.csv/valid.csv/test.csv: training, validating and testing axioms from the original ontology helis.v1.00.origin.owl.
 
 helis_v1.00.train.owl: ontology after training axioms are removed
