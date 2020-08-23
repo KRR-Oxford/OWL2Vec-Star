@@ -1,8 +1,8 @@
 #### unzip files.tar.gz for relevant I/O files.
 
-  . train.csv, valid.csv and test.csv: training, validating and testing axioms from the original ontology helis.v1.00.origin.owl respectively.
-  . helis_v1.00.train.owl: ontology after training axioms are removed.
-  . helis_v1.00.train.projection.ttl: the projection of helis_v1.00.train.owl.
+  1. train.csv, valid.csv and test.csv: training, validating and testing axioms from the original ontology helis.v1.00.origin.owl respectively.
+  2. helis_v1.00.train.owl: ontology after training axioms are removed.
+  3. helis_v1.00.train.projection.ttl: the projection of helis_v1.00.train.owl.
   . classes.txt, individuals: all named classes and individuals respectively.
   . annotations.txt, axioms: annotation axioms and normal declared axioms from helis.v1.00.train.owl respectively
   . axioms_hermit.txt: all normal axioms plus those inferred by HermiT from helis.v1.00.train.owl
