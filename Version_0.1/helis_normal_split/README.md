@@ -1,10 +1,8 @@
-1. unzip files.tar.gz for relevant (intermedidate) I/O files.
+# 1. unzip files.tar.gz for relevant (intermedidate) I/O files.
 
-  1.1 train.csv, valid.csv and test.csv: training, validating and testing axioms from the original ontology helis.v1.00.origin.owl respectively.
-  
-  1.2 helis_v1.00.train.owl: ontology after training axioms are removed.
-  
-  1.3 helis_v1.00.train.projection.ttl: the projection of helis_v1.00.train.owl.
+  ## 1.1 train.csv, valid.csv and test.csv: training, validating and testing axioms from the original ontology helis.v1.00.origin.owl respectively.
+  ## 1.2 helis_v1.00.train.owl: ontology after training axioms are removed.
+  ## 1.3 helis_v1.00.train.projection.ttl: the projection of helis_v1.00.train.owl.
   
   1.4 classes.txt, individuals: all named classes and individuals respectively.
   
