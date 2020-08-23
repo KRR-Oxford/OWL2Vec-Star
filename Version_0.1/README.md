@@ -7,6 +7,7 @@ Our python codes in this package are tested with
 4. scikit-learn 0.21.2
 5. nltk 3.5
 
-Please refer to helis_normal_split/README.md for membership prediciton on HeLis, refer to foodon_normal_split/README.md for subsumption prediction on FoodOn, and refer to go_normal_split/README.md for subsumption prediction on GO.
-
-
+Please refer to the corresponding folder for each task:
+1. helis_normal_split/README.md for membership prediciton on HeLis
+2. refer to foodon_normal_split/README.md for subsumption prediction on FoodOn
+3. refer to go_normal_split/README.md for subsumption prediction on GO.
