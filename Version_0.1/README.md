@@ -9,6 +9,4 @@ Our python codes in this package are tested with
 
 Please refer to helis_normal_split/README.md for membership prediciton on HeLis, refer to foodon_normal_split/README.md for subsumption prediction on FoodOn, and refer to go_normal_split/README.md for subsumption prediction on GO.
 
-Acknowledgements
 
-For random walk and WL subtree kernel, we re-use the codes of pyRDF2Vec.
