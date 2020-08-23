@@ -1,4 +1,4 @@
-This folder includes the codes and data to re-run the membership and subsumption prediction experiments in our paper "OWL2Vec\*: Embedding OWL Ontologies".
+This folder includes the codes and data to re-run the membership and subsumption prediction experiments in our paper ***"OWL2Vec\*: Embedding OWL Ontologies"***.
 
 Our python codes in this package are tested with
 1. Python 3.7
