@@ -1,4 +1,4 @@
-#### unzip files.tar.gz
+#### unzip files.tar.gz for the I/O files
 
 1. train.csv, valid.csv, test.csv: training, validating and testing axioms from the original ontology foodon-merged.owl respectively
 2. foodon-merged.train.owl: ontology after training axioms are removed
