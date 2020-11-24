@@ -6,9 +6,9 @@ Our codes in this package are tested with
 5. nltk 3.5
 6. OWLready 0.25
 
-Please refer to helis_normal_split/README.md for information of reproducing class membership prediciton on HeLis,
-and refer to foodon_normal_split/README.md for information of reproducing class subsumption prediction on FoodOn
-
-The standalone application is ready now: OWL2Vec_Standalone.py
+The standalone application is ready now: OWL2Vec\_Standalone.py
 It can be configured by the configuration file default.cfg
+Example: python --config\_file default.cfg
+
+The standalone can support OWL2Vec\*, as well as its variants such as OWL2Vec, Onto2Vec and OPA2Vec. We will soon make a document for start up. You can now see comments in the program and default.cfg to learn more.
 
