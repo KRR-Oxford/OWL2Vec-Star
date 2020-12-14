@@ -1,6 +1,6 @@
-It's suggested to build a maven project to run these java codes.
-They have been tested with the following dependencies:
+It's suggested to build a maven project to run these java codes. These Java codes have been tested with the following dependencies:
 
+···
  <dependencies>
         <dependency>
             <groupId>net.sourceforge.owlapi</groupId>
@@ -29,3 +29,4 @@ They have been tested with the following dependencies:
             <scope>compile</scope>
         </dependency>
     </dependencies>
+···
