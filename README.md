@@ -12,7 +12,7 @@ The folder **Experiments/** includes data and codes used in our paper [***"OWL2V
 Note the ontology relevant operations in the experiment codes, such as annotation extraction and ontology projection, are implemented by Java OWL APIs.
 For a pure python implementation, please use the standalone application.
 
-#### Standalone Application
+### Standalone Application
 The standalone application is ready in the folder **Standalone\_0.1/**. It includes two main programs.
 
 1. OWL2Vec\_Standalone.py
