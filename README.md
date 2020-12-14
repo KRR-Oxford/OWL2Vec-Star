@@ -8,7 +8,7 @@ Our codes in this package are tested with
   6. OWLready 0.25
 
 ### Experiment Codes
-The folder **Experiments/** includes data and codes used in our paper [***"OWL2Vec\*: Embedding OWL Ontologies"***](https://arxiv.org/abs/2009.14654). 
+The folder **Experiments/** includes data and codes used in our paper [****OWL2Vec\*: Embedding OWL Ontologies****](https://arxiv.org/abs/2009.14654). 
 Note the ontology relevant operations in the experiment codes, such as annotation extraction and ontology projection, are implemented by Java OWL APIs.
 For a pure python implementation, please use the standalone application.
 
