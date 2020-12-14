@@ -1,4 +1,4 @@
-###### Dependence 
+##### Dependence 
 Our codes in this package are tested with
 1. Python 3.7
 2. RDFLib 4.2.2
@@ -7,12 +7,12 @@ Our codes in this package are tested with
 5. nltk 3.5
 6. OWLready 0.25
 
-###### Experiment Codes
+##### Experiment Codes
 The folder **Experiments/** includes data and codes used in our paper [***"OWL2Vec\*: Embedding OWL Ontologies"***](https://arxiv.org/abs/2009.14654). 
 Note the ontology relevant operations in the experiment codes, such as annotation extraction and ontology projection, are implemented by Java OWL APIs.
 For a pure python implementation, please use the standalone application.
 
-###### Standalone Application
+##### Standalone Application
 The standalone application is ready in the folder **Standalone\_0.1/**. It includes two main programs.
 
 1. OWL2Vec\_Standalone.py
@@ -21,15 +21,14 @@ This program will embed one ontology. It can be configured by the configuration 
 
 Running example: ```python --config\_file default.cfg```
 
-Different from the experimental codes, the standalone program has implemented all OWL ontology relevant procedures in python with Owlready, but it also allows the user to use pre-calculated annotations/axioms/entities/projection for generating the corpus. 
+Note: Different from the experimental codes, the standalone program has implemented all OWL ontology relevant procedures in python with Owlready, but it also allows the user to use pre-calculated annotations/axioms/entities/projection for generating the corpus. 
 
 2. OWL2Vec\_Standalone_Multi.py
 
-This program will embed multiple ontologies into one language model, where the documents from multiple ontologies will be merged. 
-One use case example is embedding all the conference relevant ontologies of the OAEI conference track by once.
+This program will embed multiple ontologies into one language model, where the documents from multiple ontologies will be merged. One use case example is embedding all the conference relevant ontologies of the OAEI conference track by once.
 
 Running example: ```python --config\_file default_multi.cfg```
 
-Different from OWL2Vec\_Standalone.py, this program for multiple ontologies does NOT allow the pre-calculated or external annotations/axioms/entities/projection.
+Note: Different from OWL2Vec\_Standalone.py, this program for multiple ontologies does NOT allow the pre-calculated or external annotations/axioms/entities/projection.
 
 
