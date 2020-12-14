@@ -1,6 +1,6 @@
 This folder includes the codes and data for the membership and subsumption prediction experiments in our paper [****OWL2Vec\*: Embedding OWL Ontologies****](https://arxiv.org/abs/2009.14654).
 
-*** Codes ***
+### Codes
 
 Please refer to the corresponding folder for each task:
 
@@ -10,6 +10,6 @@ Please refer to the corresponding folder for each task:
     
     3. refer to go_normal_split/README.md for subsumption prediction on GO.
 
-*** Data ****
+### Data
 
 The three ontologies are saved in data.tar.gz.
