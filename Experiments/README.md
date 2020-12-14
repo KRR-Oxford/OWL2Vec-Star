@@ -1,4 +1,4 @@
-This folder includes the codes and data for the membership and subsumption prediction experiments in our paper [****OWL2Vec\*: Embedding OWL Ontologies****](https://arxiv.org/abs/2009.14654).
+This folder includes the codes and data for the membership and subsumption prediction in our paper [****OWL2Vec\*: Embedding OWL Ontologies****](https://arxiv.org/abs/2009.14654).
 
 ### Codes
 
