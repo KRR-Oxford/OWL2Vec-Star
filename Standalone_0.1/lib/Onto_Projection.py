@@ -850,15 +850,19 @@ class OntologyProjection(object):
             ##TODO Propagate domain for both data properties and object properties
             if self.propagate_domain_range:
                 
-                for domain_cls in self.domains_dict[property_iri]:
+                #In case of unexpected cases
+                #RO_0002180 in Foodon may not be declared as property apparently 
+                if property_iri in self.domains_dict:
                     
-                    if str(cls.iri) == str(domain_cls):
-                        continue
-                    
-                    self.__addSubsumptionTriple__(URIRef(cls.iri), domain_cls)
-                    if self.bidirectional_taxonomy:
-                        self.__addInverseSubsumptionTriple__(URIRef(cls.iri), domain_cls)
-            
+                    for domain_cls in self.domains_dict[property_iri]:
+                        
+                        if str(cls.iri) == str(domain_cls):
+                            continue
+                        
+                        self.__addSubsumptionTriple__(URIRef(cls.iri), domain_cls)
+                        if self.bidirectional_taxonomy:
+                            self.__addInverseSubsumptionTriple__(URIRef(cls.iri), domain_cls)
+                
             
             
                                     
