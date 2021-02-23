@@ -853,7 +853,7 @@ class OntologyProjection(object):
                 #In case of unexpected cases
                 #RO_0002180 in Foodon may not be declared as property apparently 
                 if property_iri in self.domains_dict:
-                    
+                
                     for domain_cls in self.domains_dict[property_iri]:
                         
                         if str(cls.iri) == str(domain_cls):
@@ -862,7 +862,7 @@ class OntologyProjection(object):
                         self.__addSubsumptionTriple__(URIRef(cls.iri), domain_cls)
                         if self.bidirectional_taxonomy:
                             self.__addInverseSubsumptionTriple__(URIRef(cls.iri), domain_cls)
-                
+            
             
             
                                     
@@ -875,23 +875,33 @@ class OntologyProjection(object):
             #Atomic target class in target of restrictions
             elif hasattr(cls_exp_rest.value, "iri"):
                 
+                ##Error with reviewsPerPaper exactly 1 rdfs:Literal restriction
+                ##rdfs:Literal is considered as owl:Thing
+                #In any case both rdfs:Literal and owl:Thing should be filtered
+                
                 target_cls_iri = cls_exp_rest.value.iri
                 
-                targets.add(target_cls_iri)
-                
-                #TODO Propagate range only in this case
-                if self.propagate_domain_range:
+                if not target_cls_iri=="http://www.w3.org/2002/07/owl#Thing" and not target_cls_iri=="http://www.w3.org/2000/01/rdf-schema#Literal":
+                                
+                    targets.add(target_cls_iri)
                     
-                    for range_cls in self.ranges_dict[property_iri]:
+                    #TODO Propagate range only in this case
+                    if self.propagate_domain_range:
                         
-                        if str(target_cls_iri) == str(range_cls):
-                            continue
+                        #In case of unexpected cases 
+                        if property_iri in self.ranges_dict:
                         
-                        
-                        self.__addSubsumptionTriple__(URIRef(target_cls_iri), range_cls)
-                        if self.bidirectional_taxonomy:
-                            self.__addInverseSubsumptionTriple__(URIRef(target_cls_iri), range_cls)
-                                    
+                            for range_cls in self.ranges_dict[property_iri]:
+                                
+                                if str(target_cls_iri) == str(range_cls):
+                                    continue
+                                
+                                
+                                self.__addSubsumptionTriple__(URIRef(target_cls_iri), range_cls)
+                                if self.bidirectional_taxonomy:
+                                    self.__addInverseSubsumptionTriple__(URIRef(target_cls_iri), range_cls)
+                
+            ##end creation of targets                        
                                         
             for target_cls in targets:
                                         
@@ -1490,18 +1500,22 @@ class OntologyProjection(object):
 
 if __name__ == '__main__':
     
-    uri_onto = "/home/ernesto/ontologies/test_projection.owl"
-    file_projection = "/home/ernesto/ontologies/test_projection_projection.ttl"
+    uri_onto = "/Users/jiahen/Data/Onto_Embedding/ontology_embed/foodon_normal_split/foodon-merged.train.infer.owl"
+    file_projection = "/Users/jiahen/Data/Onto_Embedding/ontology_embed/foodon_normal_split/foodon-merged.train.infer.projection.r.ttl"
     
-    path="/home/ernesto/Documents/OWL2Vec_star/OWL2Vec-Star-master/Version_0.1/"
+    #path="/home/ernesto/Documents/OWL2Vec_star/OWL2Vec-Star-master/Version_0.1/"
     #path = "/home/ernesto/Documents/Datasets/LargeBio/"
+    #path = "/home/ernesto/Documents/Datasets/conference/"
     
     #uri_onto = path + "helis_v1.00.origin.owl"
     #file_projection  = path + "helis_v1.00.projection.ttl"
     
     
-    uri_onto = path + "foodon-merged.owl"
-    file_projection  = path + "foodon.projection.ttl"
+    #uri_onto = path + "foodon-merged.owl"
+    #file_projection  = path + "foodon.projection.ttl"
+    
+    #uri_onto = path + "cmt.owl"
+    #file_projection  = path + "cmt.projection.ttl"
     
     #uri_onto = path + "go.owl"
     #file_projection  = path + "go.projection.ttl"
