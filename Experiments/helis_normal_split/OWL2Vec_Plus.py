@@ -14,7 +14,7 @@ from Evaluator import Evaluator
 from RDF2Vec_Embed import get_rdf2vec_walks
 
 parser = argparse.ArgumentParser(description="The is to evaluate baselines.")
-parser.add_argument("--onto_file", type=str, default="helis_v1.00.train.owl")
+parser.add_argument("--onto_file", type=str, default="helis_v1.00.train.projection.r.ttl")
 parser.add_argument("--train_file", type=str, default="train.csv")
 parser.add_argument("--valid_file", type=str, default="valid.csv")
 parser.add_argument("--test_file", type=str, default="test.csv")
@@ -25,23 +25,25 @@ parser.add_argument("--inferred_class_file", type=str, default="inferred_classes
 # hyper parameters
 parser.add_argument("--embedsize", type=int, default=100, help="Embedding size of word2vec")
 parser.add_argument("--URI_Doc", type=str, default="yes")
-parser.add_argument("--Lit_Doc", type=str, default="yes")
+parser.add_argument("--Lit_Doc", type=str, default="no")
 parser.add_argument("--Mix_Doc", type=str, default="no")
 parser.add_argument("--Mix_Type", type=str, default="random", help="random, all")
 parser.add_argument("--Embed_Out_URI", type=str, default="yes")
-parser.add_argument("--Embed_Out_Words", type=str, default="yes")
+parser.add_argument("--Embed_Out_Words", type=str, default="no")
 parser.add_argument("--input_type", type=str, default="concatenate", help='concatenate, minus')
 
 parser.add_argument("--walk_depth", type=int, default=2)
-parser.add_argument("--walker", type=str, default="wl", help="random, wl")
+parser.add_argument("--walker", type=str, default="random", help="random, wl")
 parser.add_argument("--axiom_file", type=str, default='axioms.txt', help="Corpus of Axioms")
 parser.add_argument("--annotation_file", type=str, default='annotations.txt', help="Corpus of Literals")
 
 parser.add_argument("--pretrained", type=str, default="none",
-                    help="/Users/jiahen/Data/w2v_model/enwiki_model/word2vec_gensim or none")
+                    help="~/Data/w2v_model/enwiki_model/word2vec_gensim or none")
 
 FLAGS, unparsed = parser.parse_known_args()
 
+print(FLAGS.walker)
+print(FLAGS.walk_depth)
 if FLAGS.Embed_Out_Words.lower() == 'yes' and FLAGS.Mix_Doc.lower() == 'no' and \
         FLAGS.Lit_Doc.lower() == 'no' and FLAGS.pretrained == 'none':
     print('Can not embed words with no Lit Doc or Mix Doc or pretrained model')
@@ -49,7 +51,6 @@ if FLAGS.Embed_Out_Words.lower() == 'yes' and FLAGS.Mix_Doc.lower() == 'no' and 
 
 
 def embed(model, instances):
-
     def word_embeding(inst):
         v = np.zeros(model.vector_size)
         if inst in uri_label:
@@ -116,7 +117,7 @@ annotations = list()
 uri_label = dict()
 for line in open(FLAGS.annotation_file).readlines():
     tmp = line.strip().split()
-    if tmp[1] not in ['http://www.w3.org/2000/01/rdf-schema#label', 'http://www.fbk.eu/ontologies/virtualcoach#id']\
+    if tmp[1] not in ['http://www.w3.org/2000/01/rdf-schema#label', 'http://www.fbk.eu/ontologies/virtualcoach#id'] \
             and tmp[0] in classes + individuals:
         annotations.append(tmp)
     if tmp[1] == 'http://www.w3.org/2000/01/rdf-schema#label':
@@ -125,12 +126,11 @@ for ent in individuals + classes:
     if ent not in uri_label:
         uri_label[ent] = URI_parse(ent)
 
-
 walk_sentences, axiom_sentences = list(), list()
 if FLAGS.URI_Doc.lower() == 'yes':
     walks_ = get_rdf2vec_walks(onto_file=FLAGS.onto_file, walker_type=FLAGS.walker,
-                               walk_depth=FLAGS.walk_depth, classes=classes+individuals)
-    print('Extracted {} walks for {} classes/individuals!'.format(len(walks_), len(classes)+len(individuals)))
+                               walk_depth=FLAGS.walk_depth, classes=classes + individuals)
+    print('Extracted {} walks for {} classes/individuals!'.format(len(walks_), len(classes) + len(individuals)))
     walk_sentences += [list(map(str, x)) for x in walks_]
     for line in open(FLAGS.axiom_file).readlines():
         axiom_sentence = [item for item in line.strip().split()]
@@ -216,7 +216,6 @@ if FLAGS.Mix_Doc.lower() == 'yes':
                     mix_sentence += uri_label[item] if item in uri_label else [item.lower()]
             Mix_Doc.append(mix_sentence)
 
-
 print('URI_Doc: %d, Lit_Doc: %d, Mix_Doc: %d' % (len(URI_Doc), len(Lit_Doc), len(Mix_Doc)))
 all_doc = URI_Doc + Lit_Doc + Mix_Doc
 random.shuffle(all_doc)
@@ -270,7 +269,8 @@ class InclusionEvaluator(Evaluator):
 
     def evaluate(self, model, eva_samples):
         MRR_sum, hits1_sum, hits5_sum, hits10_sum = 0, 0, 0, 0
-        for sample in eva_samples:
+        random.shuffle(eva_samples)
+        for k, sample in enumerate(eva_samples):
             individual, gt = sample[0], sample[1]
             individual_index = individuals.index(individual)
             individual_v = individuals_e[individual_index]
@@ -289,6 +289,10 @@ class InclusionEvaluator(Evaluator):
             hits1_sum += 1 if gt in sorted_classes[:1] else 0
             hits5_sum += 1 if gt in sorted_classes[:5] else 0
             hits10_sum += 1 if gt in sorted_classes[:10] else 0
+            num = k + 1
+            if num % 5 == 0:
+                print('\n%d tested, MRR: %.3f, Hits@1: %.3f, Hits@5: %.3f, Hits@10: %.3f\n' %
+                      (num, MRR_sum / num, hits1_sum / num, hits5_sum / num, hits10_sum / num))
         eva_n = len(eva_samples)
         e_MRR, hits1, hits5, hits10 = MRR_sum / eva_n, hits1_sum / eva_n, hits5_sum / eva_n, hits10_sum / eva_n
         return e_MRR, hits1, hits5, hits10
@@ -297,3 +301,9 @@ class InclusionEvaluator(Evaluator):
 print("\n		2.Train and test ... \n")
 evaluator = InclusionEvaluator(valid_samples, test_samples, train_X, train_y)
 evaluator.run_random_forest()
+# evaluator.run_mlp()
+# evaluator.run_logistic_regression()
+# evaluator.run_svm()
+# evaluator.run_decision_tree()
+# evaluator.run_linear_svc()
+# evaluator.run_sgd_log()

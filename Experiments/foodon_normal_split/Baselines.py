@@ -43,7 +43,7 @@ parser.add_argument("--windsize", type=int, default=5, help="Window size for wor
 parser.add_argument("--mincount", type=int, default=0, help="Minimum count value for word2vec model")
 parser.add_argument("--model", type=str, default='sg', help="word2vec architecture: sg or cbow")
 parser.add_argument("--pretrained", type=str, default="none",
-                    help="~/w2v_model/enwiki_model/word2vec_gensim or none")
+                    help="/Users/jiahen/Data/w2v_model/enwiki_model/word2vec_gensim or none")
 
 FLAGS, unparsed = parser.parse_known_args()
 

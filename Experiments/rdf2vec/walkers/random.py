@@ -51,8 +51,9 @@ class RandomWalker(Walker):
                     if i == 0 or i % 2 == 1:
                         canonical_walk.append(hop.name)
                     else:
-                        digest = md5(hop.name.encode()).digest()[:8]
-                        canonical_walk.append(str(digest))
+                        # digest = md5(hop.name.encode()).digest()[:8]
+                        # canonical_walk.append(str(digest))
+                        canonical_walk.append(hop.name)
 
                 canonical_walks.add(tuple(canonical_walk))
 

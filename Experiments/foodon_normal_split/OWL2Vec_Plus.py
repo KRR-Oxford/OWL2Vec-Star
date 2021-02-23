@@ -14,7 +14,7 @@ from Evaluator import Evaluator
 from RDF2Vec_Embed import get_rdf2vec_walks
 
 parser = argparse.ArgumentParser(description="The is to evaluate RDF2Vec.")
-parser.add_argument("--onto_file", type=str, default="foodon-merged.train.owl")
+parser.add_argument("--onto_file", type=str, default="foodon-merged.train.projection.r.no_reason.ttl")
 parser.add_argument("--train_file", type=str, default="train.csv")
 parser.add_argument("--valid_file", type=str, default="valid.csv")
 parser.add_argument("--test_file", type=str, default="test.csv")
@@ -24,20 +24,20 @@ parser.add_argument("--inferred_ancestor_file", type=str, default="inferred_ance
 # hyper parameters
 parser.add_argument("--embedsize", type=int, default=100, help="Embedding size of word2vec")
 parser.add_argument("--URI_Doc", type=str, default="yes")
-parser.add_argument("--Lit_Doc", type=str, default="yes")
-parser.add_argument("--Mix_Doc", type=str, default="yes")
+parser.add_argument("--Lit_Doc", type=str, default="no")
+parser.add_argument("--Mix_Doc", type=str, default="no")
 parser.add_argument("--Mix_Type", type=str, default="random", help="random, all")
 parser.add_argument("--Embed_Out_URI", type=str, default="yes")
-parser.add_argument("--Embed_Out_Words", type=str, default="yes")
+parser.add_argument("--Embed_Out_Words", type=str, default="no")
 parser.add_argument("--input_type", type=str, default="concatenate", help='concatenate, minus')
 
 parser.add_argument("--walk_depth", type=int, default=2)
-parser.add_argument("--walker", type=str, default="wl", help="random, wl")
+parser.add_argument("--walker", type=str, default="random", help="random, wl")
 parser.add_argument("--axiom_file", type=str, default='axioms.txt', help="Corpus of Axioms")
 parser.add_argument("--annotation_file", type=str, default='annotations.txt', help="Corpus of Literals")
 
 parser.add_argument("--pretrained", type=str, default="none",
-                    help="~/w2v_model/enwiki_model/word2vec_gensim or none")
+                    help="~/Data/w2v_model/enwiki_model/word2vec_gensim or none")
 
 FLAGS, unparsed = parser.parse_known_args()
 
@@ -261,7 +261,8 @@ class InclusionEvaluator(Evaluator):
 
     def evaluate(self, model, eva_samples):
         MRR_sum, hits1_sum, hits5_sum, hits10_sum = 0, 0, 0, 0
-        for sample in eva_samples:
+        random.shuffle(eva_samples)
+        for k, sample in enumerate(eva_samples):
             sub, gt = sample[0], sample[1]
             sub_index = classes.index(sub)
             sub_v = classes_e[sub_index]
@@ -280,6 +281,10 @@ class InclusionEvaluator(Evaluator):
             hits1_sum += 1 if gt in sorted_classes[:1] else 0
             hits5_sum += 1 if gt in sorted_classes[:5] else 0
             hits10_sum += 1 if gt in sorted_classes[:10] else 0
+            num = k + 1
+            if num % 5 == 0:
+                print('\n%d tested, MRR: %.4f, Hits@1: %.4f, Hits@5: %.4f, Hits@10: %.4f\n' %
+                      (num, MRR_sum/num, hits1_sum/num, hits5_sum/num, hits10_sum/num))
         eva_n = len(eva_samples)
         e_MRR, hits1, hits5, hits10 = MRR_sum / eva_n, hits1_sum / eva_n, hits5_sum / eva_n, hits10_sum / eva_n
         return e_MRR, hits1, hits5, hits10
@@ -288,3 +293,8 @@ class InclusionEvaluator(Evaluator):
 print("\n		2.Train and test ... \n")
 evaluator = InclusionEvaluator(valid_samples, test_samples, train_X, train_y)
 evaluator.run_random_forest()
+# evaluator.run_mlp()
+# evaluator.run_logistic_regression()
+# evaluator.run_mlp()
+# evaluator.run_svm()
+# evaluator.run_sgd_log()
