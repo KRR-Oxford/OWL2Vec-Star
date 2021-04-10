@@ -7,8 +7,8 @@ import gensim
 import sys
 from nltk import word_tokenize
 
-sys.path.append('../rdf2vec/')
-sys.path.append('../lib/')
+sys.path.append('../../rdf2vec/')
+sys.path.append('../../lib/')
 sys.path.append('.')
 from Evaluator import Evaluator
 from RDF2Vec_Embed import get_rdf2vec_walks

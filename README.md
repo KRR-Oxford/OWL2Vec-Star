@@ -36,6 +36,6 @@ Jiaoyan Chen, Pan Hu, Ernesto Jimenez-Ruiz, Ole Magnus Holter, Denvar Antonyraja
 ### Case Studies 
 Data and codes for class membership prediction on the Healthy Lifestyles (HeLis) ontology, 
 and class subsumption prediction on the food ontology FoodOn and the Gene Ontology (GO), are under the folder **case\_studies/**.
-The case studies now rely on some JAVA OWL API-based implementation (**case\_studies/java/**) for ontology pre-processing e.g., ontology projection, and membership/subsumption axioms partition for train, valid and test sets.
+The case studies now still rely on some JAVA OWL API-based implementation (**case\_studies/java/**) for pre-processing e.g., membership/subsumption axioms partition for training, validation and testing sets.
 
 Note the standalone application is a pure Python implementation, with OWLready for replacing JAVA OWL API. 

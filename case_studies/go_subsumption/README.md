@@ -1,8 +1,8 @@
-Here are the instructions for reproducing the results of class subsumption prediction on FoodOn. 
+Here are the instructions for reproducing the results of class subsumption prediction on GO. 
 
 - Unzip files.tar.gz for files by pre-processing.
 
-    1. train.csv, valid.csv, test.csv: training, validation and testing axioms from the original ontology foodon-merged.owl.
+    1. train.csv, valid.csv, test.csv: training, validation and testing axioms from the original ontology go.owl.
     2. go.train.owl: ontology after validation and testing axioms are removed.
     3. go.train.projection.ttl: the projection of go.train.owl.
     4. classes.txt: all named classes.
