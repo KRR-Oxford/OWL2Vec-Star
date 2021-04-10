@@ -33,7 +33,9 @@ The standalone application (v0.1.0) can be run by the two main programs.
 ### Publication
 Jiaoyan Chen, Pan Hu, Ernesto Jimenez-Ruiz, Ole Magnus Holter, Denvar Antonyrajah, and Ian Horrocks. [****OWL2Vec\*: Embedding of OWL ontologies****](https://arxiv.org/abs/2009.14654). Machine Learning, Springer, 2021. (accepted).
 
-### Experiment Codes
-The folder **Experiments/** includes data and codes used in our paper "OWL2Vec\*: Embedding OWL Ontologies". 
-Note the ontology relevant operations in the experiment codes, such as annotation extraction and ontology projection, are implemented by Java OWL APIs.
-For a pure python implementation, please use the standalone application.
+### Case Studies 
+Data and codes for class membership prediction on the Healthy Lifestyles (HeLis) ontology, 
+and class subsumption prediction on the food ontology FoodOn and the Gene Ontology (GO), are under the folder **case\_studies/**.
+The case studies now rely on some JAVA OWL API-based implementation (**case\_studies/java/**) for ontology pre-processing e.g., ontology projection, and membership/subsumption axioms partition for train, valid and test sets.
+
+Note the standalone application is a pure Python implementation, with OWLready for replacing JAVA OWL API. 
