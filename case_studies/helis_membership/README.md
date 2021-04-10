@@ -1,4 +1,4 @@
-Here are the instructions for reproducing the results of membership prediction on HeLis. 
+Here are the instructions for reproducing the results of class membership prediction on HeLis. 
 
 - unzip files.tar.gz for files by pre-processing.
 
