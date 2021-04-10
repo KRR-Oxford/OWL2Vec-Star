@@ -30,10 +30,10 @@ The standalone application (v0.1.0) can be run by the two main programs.
 
     Note: Different from OWL2Vec\_Standalone.py, this program for multiple ontologies does NOT allow the pre-calculated or external annotations/axioms/entities/projection.
 
+### Publication
+Jiaoyan Chen, Pan Hu, Ernesto Jimenez-Ruiz, Ole Magnus Holter, Denvar Antonyrajah, and Ian Horrocks. [****OWL2Vec\*: Embedding of OWL ontologies****](https://arxiv.org/abs/2009.14654). Machine Learning, Springer, 2021. (accepted).
+
 ### Experiment Codes
-The folder **experiments/** includes data and codes used in our paper "OWL2Vec\*: Embedding OWL Ontologies". 
+The folder **Experiments/** includes data and codes used in our paper "OWL2Vec\*: Embedding OWL Ontologies". 
 Note the ontology relevant operations in the experiment codes, such as annotation extraction and ontology projection, are implemented by Java OWL APIs.
 For a pure python implementation, please use the standalone application.
-
-### Publication
-Chen, Jiaoyan, Pan Hu, Ernesto Jimenez-Ruiz, Ole Magnus Holter, Denvar Antonyrajah, and Ian Horrocks. [****OWL2Vec\*: Embedding of OWL ontologies****](https://arxiv.org/abs/2009.14654). Machine Learning, Springer, 2021. (accepted).
