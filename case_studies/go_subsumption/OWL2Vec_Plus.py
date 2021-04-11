@@ -14,7 +14,8 @@ from Evaluator import Evaluator
 from RDF2Vec_Embed import get_rdf2vec_walks
 
 parser = argparse.ArgumentParser(description="The is to evaluate RDF2Vec.")
-parser.add_argument("--onto_file", type=str, default="go.train.projection.r.ttl")
+parser.add_argument("--onto_file", type=str, default="go.train.owl",
+                    help="go.train.owl or go.train.projection.ttl or go.train.projection.r.ttl")
 parser.add_argument("--train_file", type=str, default="train.csv")
 parser.add_argument("--valid_file", type=str, default="valid.csv")
 parser.add_argument("--test_file", type=str, default="test.csv")

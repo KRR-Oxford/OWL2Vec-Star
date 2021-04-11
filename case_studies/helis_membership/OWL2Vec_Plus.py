@@ -14,7 +14,8 @@ from Evaluator import Evaluator
 from RDF2Vec_Embed import get_rdf2vec_walks
 
 parser = argparse.ArgumentParser(description="The is to evaluate baselines.")
-parser.add_argument("--onto_file", type=str, default="helis_v1.00.train.projection.r.ttl")
+parser.add_argument("--onto_file", type=str, default="helis_v1.00.train.projection.ttl",
+                    help='helis_v1.00.train.owl or helis_v1.00.train.projection.ttl or helis_v1.00.train.projection.r.ttl')
 parser.add_argument("--train_file", type=str, default="train.csv")
 parser.add_argument("--valid_file", type=str, default="valid.csv")
 parser.add_argument("--test_file", type=str, default="test.csv")

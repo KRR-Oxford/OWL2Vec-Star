@@ -14,7 +14,8 @@ from Evaluator import Evaluator
 from RDF2Vec_Embed import get_rdf2vec_walks
 
 parser = argparse.ArgumentParser(description="The is to evaluate RDF2Vec.")
-parser.add_argument("--onto_file", type=str, default="foodon-merged.train.projection.r.no_reason.ttl")
+parser.add_argument("--onto_file", type=str, default="foodon-merged.train.owl",
+                    help='foodon-merged.train.owl or foodon-merged.train.projection.ttl or food-merged.train.projection.r.ttl')
 parser.add_argument("--train_file", type=str, default="train.csv")
 parser.add_argument("--valid_file", type=str, default="valid.csv")
 parser.add_argument("--test_file", type=str, default="test.csv")
