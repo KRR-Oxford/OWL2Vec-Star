@@ -1,4 +1,4 @@
-### Dependence 
+## Dependences 
 Our codes in this package have been tested with
   1. Python 3.7
   2. RDFLib 4.2.2
@@ -8,10 +8,10 @@ Our codes in this package have been tested with
   6. OWLready 0.25
   
  Acknowledgement: 
- codes under rdf2vec/, which mainly implement walking strategies over RDF graph, 
+ Codes under rdf2vec/, which mainly implement walking strategies over RDF graph, 
  come from [pyRDF2Vec](https://github.com/IBCNServices/pyRDF2Vec) (version 0.0.3, accessed in 03/2020), with some updates made.
 
-### Standalone Application
+## Standalone Application
 The standalone application (v0.1.0) can be run by the two main programs.
 
 1. OWL2Vec\_Standalone.py
@@ -30,9 +30,18 @@ The standalone application (v0.1.0) can be run by the two main programs.
 
     Note: Different from OWL2Vec\_Standalone.py, this program for multiple ontologies does NOT allow the pre-calculated or external annotations/axioms/entities/projection.
 
-### Publication
-Jiaoyan Chen, Pan Hu, Ernesto Jimenez-Ruiz, Ole Magnus Holter, Denvar Antonyrajah, and Ian Horrocks. [****OWL2Vec\*: Embedding of OWL ontologies****](https://arxiv.org/abs/2009.14654). Machine Learning, Springer, 2021. (accepted).
+## Publications
+- Jiaoyan Chen, Pan Hu, Ernesto Jimenez-Ruiz, Ole Magnus Holter, Denvar Antonyrajah, and Ian Horrocks. [****OWL2Vec\*: Embedding of OWL ontologies****](https://arxiv.org/abs/2009.14654). Machine Learning, Springer, 2021. (accepted).
 
-### Case Studies 
+### Applications with OWL2Vec\*
+- Jiaoyan Chen, Ernesto Jimenez-Ruiz, Ian Horrocks, Denvar Antonyrajah, Ali Hadian, Jaehun Lee. **Augmenting Ontology Alignment by Semantic Embedding and Distant Supervision**. European Semantic Web Conference, ESWC 2021. ([PDF](https://openaccess.city.ac.uk/id/eprint/25810/1/ESWC2021_ontology_alignment_LogMap_ML.pdf))
+- Ashley Ritchie, Jiaoyan Chen, Leyla Jael Castro, Dietrich Rebholz-Schuhmann, Ernesto Jiménez-Ruiz. **Ontology Clustering with OWL2Vec\***. DeepOntonNLP ESWC Workshop 2021
+
+### Preliminary Publications
+- Ole Magnus Holter, Erik Bryhn Myklebust, Jiaoyan Chen and Ernesto Jimenez-Ruiz. **Embedding OWL ontologies with OWL2Vec**. International Semantic Web Conference. Poster & Demos. 2019. ([PDF](https://www.cs.ox.ac.uk/isg/TR/OWL2vec_iswc2019_poster.pdf))
+- Ole Magnus Holter. **Semantic Embeddings for OWL 2 Ontologies**. MSc thesis, University of Oslo. 2019. ([PDF](https://www.duo.uio.no/bitstream/handle/10852/69078/thesis_ole_magnus_holter.pdf))
+
+
+## Case Studies 
 Data and codes for class membership prediction on the Healthy Lifestyles (HeLis) ontology, 
 and class subsumption prediction on the food ontology FoodOn and the Gene Ontology (GO), are under the folder **case\_studies/**.
