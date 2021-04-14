@@ -5,7 +5,7 @@ Our codes in this package have been tested with
   3. gensim 3.8.0
   4. scikit-learn 0.21.2
   5. nltk 3.5
-  6. OWLready 0.25
+  6. OWLready2 0.25
   
  Acknowledgement: 
  codes under rdf2vec/, which mainly implement walking strategies over RDF graph, 
