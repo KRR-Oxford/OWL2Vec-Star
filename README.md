@@ -14,7 +14,7 @@ Our codes in this package have been tested with
 ## Standalone Application
 The standalone application (v0.1.0) can be run by the two main programs.
 
-1. OWL2Vec\_Standalone.py
+1. **OWL2Vec\_Standalone.py**
 
     This program will embed one ontology. It can be configured by the configuration file default.cfg. See the examples and comments in default.cfg for the usage.
 
@@ -22,7 +22,7 @@ The standalone application (v0.1.0) can be run by the two main programs.
 
     Note: Different from the experimental codes, the standalone program has implemented all OWL ontology relevant procedures in python with Owlready, but it also allows the user to use pre-calculated annotations/axioms/entities/projection for generating the corpus. 
 
-2. OWL2Vec\_Standalone_Multi.py
+2. **OWL2Vec\_Standalone_Multi.py**
 
     This program will embed multiple ontologies into one language model, where the documents from multiple ontologies will be merged. One use case example is embedding all the conference relevant ontologies of the OAEI conference track by once.
 
