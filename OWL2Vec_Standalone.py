@@ -35,6 +35,8 @@ if FLAGS.Mix_Doc:
     config['DOCUMENT']['Mix_Doc'] = 'yes'
 if 'cache_dir' not in config['DOCUMENT']:
     config['DOCUMENT']['cache_dir'] = './cache'
+if not os.path.exists(config['DOCUMENT']['cache_dir']):
+    os.mkdir(config['DOCUMENT']['cache_dir'])
 if 'embedding_dir' not in config['BASIC']:
     config['BASIC']['embedding_dir'] = os.path.join(config['DOCUMENT']['cache_dir'], 'output')
 
