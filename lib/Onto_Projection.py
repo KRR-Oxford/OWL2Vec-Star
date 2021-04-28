@@ -5,13 +5,14 @@ Created on 16 Oct 2020
 '''
 
 
+import time
+import sys
+sys.path.append('lib/')
 from Onto_Access import OntologyAccess, Reasoner
 from rdflib import Graph, URIRef
 from rdflib.namespace import RDF, RDFS
 import logging
 from Onto_Annotations import AnnotationURIs
-import time
-import sys
 ######
 
 

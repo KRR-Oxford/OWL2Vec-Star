@@ -1,6 +1,9 @@
 import re
 from sklearn.utils.validation import check_is_fitted
 from gensim.models.word2vec import Word2Vec
+
+import sys
+sys.path.append('rdf2vec/')
 from walkers.random import RandomWalker
 import numpy as np
 import multiprocessing

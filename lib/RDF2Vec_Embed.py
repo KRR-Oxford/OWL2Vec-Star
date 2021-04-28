@@ -2,7 +2,7 @@ import rdflib
 import sys
 import numpy as np
 
-sys.path.append('../rdf2vec/')
+sys.path.append('rdf2vec/')
 from embed import RDF2VecTransformer
 from graph import KnowledgeGraph, Vertex
 from walkers.random import RandomWalker

@@ -16,6 +16,8 @@ from sklearn.svm import SVC
 from sklearn.metrics import confusion_matrix, accuracy_score
 from sklearn.manifold import TSNE
 
+import sys
+sys.path.append('rdf2vec/')
 from converters import rdflib_to_kg
 from embed import RDF2VecTransformer
 

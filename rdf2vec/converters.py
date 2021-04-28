@@ -1,3 +1,6 @@
+import sys
+sys.path.append('rdf2vec/')
+
 from graph import KnowledgeGraph, Vertex
 from tqdm import tqdm
 
