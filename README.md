@@ -2,7 +2,7 @@
 Our codes in this package have been tested with
   1. Python 3.7
   2. RDFLib 4.2.2
-  3. gensim 3.8.0 (Note that Gensim 4.x brings important changes see documention [here](https://github.com/RaRe-Technologies/gensim/wiki/Migrating-from-Gensim-3.x-to-4))
+  3. gensim 3.8.0 (Note that gensim 4.x brings important changes, see documention [here](https://github.com/RaRe-Technologies/gensim/wiki/Migrating-from-Gensim-3.x-to-4))
   4. scikit-learn 0.21.2
   5. nltk 3.5
   6. OWLready2 0.25
