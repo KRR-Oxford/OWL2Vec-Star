@@ -1,4 +1,4 @@
-This folder is to reproduce class membership and subsumption prediction on HeLis, FoodOn and GO. 
+This folder is to reproduce class membership and subsumption prediction on HeLis (v1.00), FoodOn (accessed in March 2020, imported ontologies localized) and GO (accessed on 08 August, 2020). 
 
 #### Unzip files.tar.gz for files by pre-processing.
 
