@@ -34,7 +34,7 @@ The standalone application (v0.1.0) can be run by the two main programs.
 
 ### Main Reference
 
-- Jiaoyan Chen, Pan Hu, Ernesto Jimenez-Ruiz, Ole Magnus Holter, Denvar Antonyrajah, and Ian Horrocks. [****OWL2Vec\*: Embedding of OWL ontologies****](https://arxiv.org/abs/2009.14654). Machine Learning, Springer, 2021. (accepted). [Codes](https://github.com/KRR-Oxford/OWL2Vec-Star/releases/tag/OWL2Vec-Star-ML-2021-Journal) for the computed results. 
+- Jiaoyan Chen, Pan Hu, Ernesto Jimenez-Ruiz, Ole Magnus Holter, Denvar Antonyrajah, and Ian Horrocks. ***OWL2Vec\*: Embedding of OWL ontologies***. Machine Learning, Springer, 2021. [Codes](https://github.com/KRR-Oxford/OWL2Vec-Star/releases/tag/OWL2Vec-Star-ML-2021-Journal) for the computed results. ([PDF](https://arxiv.org/abs/2009.14654)) ([@Springer](https://rdcu.be/cmIMh)) ([Collection](https://link.springer.com/journal/10994/topicalCollection/AC_f13088dda1f43d317c5acbfdf9439a31))
 
 ### Applications with OWL2Vec\*
 - Jiaoyan Chen, Ernesto Jimenez-Ruiz, Ian Horrocks, Denvar Antonyrajah, Ali Hadian, Jaehun Lee. **Augmenting Ontology Alignment by Semantic Embedding and Distant Supervision**. European Semantic Web Conference, ESWC 2021. ([PDF](https://openaccess.city.ac.uk/id/eprint/25810/1/ESWC2021_ontology_alignment_LogMap_ML.pdf)) ([LogMap Matcher work](https://github.com/ernestojimenezruiz/logmap-matcher/))
