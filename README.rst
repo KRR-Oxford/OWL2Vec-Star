@@ -3,8 +3,8 @@ OWL2Vec-Star
 ============
 
 
-.. |pypi|  image:: https://img.shields.io/pypi/v/owl2vec_star.svg
-           :target: https://pypi.python.org/pypi/owl2vec_star
+.. |pypi|  image:: https://img.shields.io/pypi/v/owl2vec-star.svg
+           :target: https://pypi.python.org/pypi/owl2vec-star
 
 .. |docs|  image:: https://readthedocs.org/projects/owl2vec-star/badge/?version=latest
            :target: https://owl2vec-star.readthedocs.io/en/latest/?version=latest
@@ -15,7 +15,7 @@ OWL2Vec-Star
 **OWL2Vec*: Embedding OWL ontologies**
 
 
-* Free software: Apache 2.0 license
+* Free software: Apache-2.0 License
 * Documentation: https://owl2vec-star.readthedocs.io.
 
 

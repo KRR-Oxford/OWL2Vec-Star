@@ -219,6 +219,16 @@ def standalone(ontology_file, embedding_dir, config_file, uri_doc, lit_doc, mix_
     print('Time for document construction: %s seconds' % (time.time() - start_time))
     random.shuffle(all_doc)
 
+
+    #Save all_doc (optional)
+    #with open(os.path.join(config['DOCUMENT']['cache_dir'], 'document_sentences.txt'), 'w') as f:
+    #    for sentence in all_doc:
+    #        for w in sentence:
+    #            f.write('%s ' % w)
+    #        f.write('\n')
+    #    f.close()
+
+
     # learn the language model (train a new model or fine tune the pre-trained model)
     start_time = time.time()
     if 'pre_train_model' not in config['MODEL'] or not os.path.exists(config['MODEL']['pre_train_model']):

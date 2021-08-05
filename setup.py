@@ -31,7 +31,7 @@ setup(
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: Apace 2.0 License',
+        'License :: OSI Approved :: Apache Software License',
         'Natural Language :: English',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.6',
@@ -45,7 +45,7 @@ setup(
         ],
     },
     install_requires=requirements,
-    license="Apache 2.0 license",
+    license="Apache-2.0 License",
     long_description=readme + '\n\n' + history,
     include_package_data=True,
     keywords='owl2vec_star',
