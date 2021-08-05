@@ -6,9 +6,6 @@ OWL2Vec-Star
 .. |pypi|  image:: https://img.shields.io/pypi/v/owl2vec_star.svg
            :target: https://pypi.python.org/pypi/owl2vec_star
 
-.. |build| image:: https://img.shields.io/travis/ChenJiaoyan/owl2vec_star.svg
-           :target: https://travis-ci.com/ChenJiaoyan/owl2vec_star
-
 .. |docs|  image:: https://readthedocs.org/projects/owl2vec-star/badge/?version=latest
            :target: https://owl2vec-star.readthedocs.io/en/latest/?version=latest
            :alt: Documentation Status
@@ -39,14 +36,14 @@ Running example::
 
 Note: Different from the experimental codes, the standalone command has implemented all OWL ontology
 relevant procedures in python with Owlready, but it also allows the user to use pre-calculated
-annotations/axioms/entities/projection for generating the corpus.
+annotations/axioms/entities/projection to generate the corpus.
 
 Standalone Multi
 ~~~~~~~~~~~~~~~~
 
 This command will embed multiple ontologies into one language model, where the documents from
 multiple ontologies will be merged. One use case example is embedding all the conference relevant
-ontologies of the OAEI conference track by once.
+ontologies of the OAEI conference track at once.
 
 Running example::
 
@@ -107,8 +104,8 @@ Credits
 Code under `rdf2vec/`, which mainly implement walking strategies over RDF graphs,
 is derived from `pyRDF2Vec`_ (version 0.0.3, last access: 03/2020).
 
-
 This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+Many thanks to [`Vincenzo Cutrona <https://github.com/vcutrona>`_] for preparing this package.
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
