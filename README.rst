@@ -12,7 +12,7 @@ OWL2Vec-Star
 
 |pypi| |docs|
 
-Embedding OWL ontologies
+**OWL2Vec*: Embedding OWL ontologies**
 
 
 * Free software: Apache 2.0 license
