@@ -105,7 +105,7 @@ Code under `rdf2vec/`, which mainly implement walking strategies over RDF graphs
 is derived from `pyRDF2Vec`_ (version 0.0.3, last access: 03/2020).
 
 This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
-Many thanks to [`Vincenzo Cutrona <https://github.com/vcutrona>`_] for preparing this package.
+Many thanks to `Vincenzo Cutrona <https://github.com/vcutrona>`_ for preparing this package.
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
