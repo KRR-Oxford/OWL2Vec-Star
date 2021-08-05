@@ -10,7 +10,7 @@ OWL2Vec-Star
            :target: https://owl2vec-star.readthedocs.io/en/latest/?version=latest
            :alt: Documentation Status
 
-|pypi| |build| |docs|
+|pypi| |docs|
 
 Embedding OWL ontologies
 
