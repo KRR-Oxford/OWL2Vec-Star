@@ -61,7 +61,7 @@ Running command::
 
 Running program::
 
-    $ python OWL2Vec_Standalone.py --config_file default.cfg
+    $ python OWL2Vec_Standalone.py --config_file default_multi.cfg
 
 Note: Different from the `standalone` command, this command for multiple ontologies does NOT allow
 the pre-calculated or external annotations/axioms/entities/projection.
@@ -115,8 +115,8 @@ folder `case_studies/`.
 
 Credits
 -------
-Code under `rdf2vec/`, which mainly implement walking strategies over RDF graphs,
-is derived from `pyRDF2Vec`_ (version 0.0.3, last access: 03/2020).
+Code under `owl2vec_star/rdf2vec/`, which mainly implement walking strategies over RDF graphs,
+is derived from `pyRDF2Vec`_ (version 0.0.3, last access: 03/2020) with revision.
 
 This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
 Many thanks to `Vincenzo Cutrona <https://github.com/vcutrona>`_ for preparing this package.
