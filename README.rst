@@ -18,6 +18,9 @@ OWL2Vec-Star
 * Free software: Apache-2.0 License
 * Documentation: https://owl2vec-star.readthedocs.io.
 
+**Installation**
+
+    $ make install
 
 Features
 --------
