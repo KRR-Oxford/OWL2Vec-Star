@@ -18,14 +18,16 @@ OWL2Vec-Star
 * Free software: Apache-2.0 License
 * Documentation: https://owl2vec-star.readthedocs.io.
 
-**Installation**
-
-    $ make install
 
 Features
 --------
 
-OWL2Vec* v0.2.0 exposes a CLI with two subcommands, which allows you to perform two main programs.
+OWL2Vec* v0.2.0 exposes a CLI with two subcommands after installation, which allows you to perform two main programs.
+You can also run the two original python programs without installation (see the requirements in setup.py).
+
+Installation::
+
+    $ make install
 
 Standalone
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -33,9 +35,14 @@ Standalone
 This command will embed one ontology. It can be configured by the configuration file default.cfg.
 See the examples and comments in default.cfg for the usage.
 
-Running example::
+Running command::
 
     $ owl2vec_star standalone --config_file default.cfg
+
+Running program::
+
+    $ python OWL2Vec_Standalone.py --config_file default.cfg
+
 
 Note: Different from the experimental codes, the standalone command has implemented all OWL ontology
 relevant procedures in python with Owlready, but it also allows the user to use pre-calculated
@@ -48,9 +55,13 @@ This command will embed multiple ontologies into one embedding model, where the 
 multiple ontologies will be merged. One use case example is embedding all the conference relevant
 ontologies of the OAEI conference track at once.
 
-Running example::
+Running command::
 
     $ owl2vec_star standalone-multi --config_file default_multi.cfg
+
+Running program::
+
+    $ python OWL2Vec_Standalone.py --config_file default.cfg
 
 Note: Different from the `standalone` command, this command for multiple ontologies does NOT allow
 the pre-calculated or external annotations/axioms/entities/projection.
