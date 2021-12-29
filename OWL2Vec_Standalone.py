@@ -210,10 +210,10 @@ random.shuffle(all_doc)
 start_time = time.time()
 if 'pre_train_model' not in config['MODEL'] or not os.path.exists(config['MODEL']['pre_train_model']):
     print('\nTrain the embedding model ...')
-    model_ = gensim.models.Word2Vec(all_doc, size=int(config['MODEL']['embed_size']),
+    model_ = gensim.models.Word2Vec(all_doc, vector_size=int(config['MODEL']['embed_size']),
                                     window=int(config['MODEL']['window']),
                                     workers=multiprocessing.cpu_count(),
-                                    sg=1, iter=int(config['MODEL']['iteration']),
+                                    sg=1, epochs=int(config['MODEL']['iteration']),
                                     negative=int(config['MODEL']['negative']),
                                     min_count=int(config['MODEL']['min_count']), seed=int(config['MODEL']['seed']))
 else:
