@@ -25,7 +25,7 @@ Features
 OWL2Vec* v0.2.0 exposes a CLI with two subcommands after installation, which allows you to perform two main programs.
 You can also run the two original python programs without installation (see the requirements in setup.py).
 
-Installation::
+Installation command::
 
     $ make install
 
