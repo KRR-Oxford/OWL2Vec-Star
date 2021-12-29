@@ -51,7 +51,7 @@ class OntologyProjection(object):
     def __init__(self, urionto, reasoner=Reasoner.NONE, only_taxonomy=False, bidirectional_taxonomy=False, include_literals=True, avoid_properties=set(), additional_preferred_labels_annotations=set(), additional_synonyms_annotations=set(), memory_reasoner='10240'):
 
         try:
-            logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.DEBUG)
+            logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.INFO)
 
             #owlready2.reasoning.JAVA_MEMORY='15360'
 
@@ -87,6 +87,7 @@ class OntologyProjection(object):
             self.annotation_uris = AnnotationURIs()
             self.entityToPreferredLabels = {}
             self.entityToSynonyms = {}
+            self.entityToPrefLabelsAndSynonyms = {}
             self.entityToAllLexicalLabels = {}
 
 
@@ -1392,11 +1393,18 @@ class OntologyProjection(object):
     #?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 
 
-
+    #Covers annotations where they appear associated to an (anonymous) individual like in anatomy track
     def getQueryForAnnotations(self, ann_prop_uri):
 
         return """SELECT DISTINCT ?s ?o WHERE {{
+        {{
         ?s <{ann_prop}> ?o .
+        }}
+        UNION
+        {{
+        ?s <{ann_prop}> ?i .
+        ?i <http://www.w3.org/2000/01/rdf-schema#label> ?o .
+        }}
         }}""".format(ann_prop=ann_prop_uri)
 
 
@@ -1421,6 +1429,10 @@ class OntologyProjection(object):
         synonyms_annotation_uris.update(self.additional_synonyms_annotations)
         synonyms_annotation_uris.update(self.annotation_uris.getAnnotationURIsForSymnonyms())
 
+        #pref_label_and_synonyms_annotation_uris = set()
+        #pref_label_and_synonyms_annotation_uris.update(synonyms_annotation_uris)
+        #pref_label_and_synonyms_annotation_uris.update(pref_label_annotation_uris)
+
 
         all_annotation_uris = set()
         all_annotation_uris.update(self.annotation_uris.getAnnotationURIsForLexicalAnnotations())
@@ -1428,12 +1440,11 @@ class OntologyProjection(object):
         all_annotation_uris.update(self.additional_synonyms_annotations)
 
 
-
-
         self.__populateDictionary__(pref_label_annotation_uris, self.entityToPreferredLabels)
         self.__populateDictionary__(synonyms_annotation_uris, self.entityToSynonyms)
         self.__populateDictionary__(all_annotation_uris, self.entityToAllLexicalLabels)
 
+        #self.__populateDictionary__(pref_label_and_synonyms_annotation_uris, self.entityToPrefLabelsAndSynonyms)
 
 
 
@@ -1467,8 +1478,12 @@ class OntologyProjection(object):
     def getSynonymLabelsForEntity(self, entity_uri):
         return self.entityToSynonyms[entity_uri]
 
-    def getAllAnnotationsForEntity(self, entity_uri):
-        return self.entityToAllLexicalLabels[entity_uri]
+    def getPreferredAndSynonymLabelsForEntity(self, entity_uri):
+        return self.entityToPrefLabelsAndSynonyms[entity_uri]
+
+
+    #def getAllAnnotationsForEntity(self, entity_uri):
+    #    return self.entityToAllLexicalLabels[entity_uri]
 
 
 
@@ -1506,6 +1521,12 @@ if __name__ == '__main__':
     #path="/home/ernesto/Documents/OWL2Vec_star/OWL2Vec-Star-master/Version_0.1/"
     #path = "/home/ernesto/Documents/Datasets/LargeBio/"
     #path = "/home/ernesto/Documents/Datasets/conference/"
+    path= "/home/ernesto/Documents/Datasets/anatomy/"
+
+    uri_onto = path + "human.owl"
+    file_projection  = path + "human.ttl"
+    #uri_onto = path + "mouse.owl"
+    #file_projection = path + "mouse.ttl"
 
     #uri_onto = path + "helis_v1.00.origin.owl"
     #file_projection  = path + "helis_v1.00.projection.ttl"
@@ -1573,6 +1594,10 @@ if __name__ == '__main__':
 
         #for e in projection.entityToPreferredLabels:
         #    print(e, projection.entityToPreferredLabels[e])
+
+        for e in projection.entityToPrefLabelsAndSynonyms:
+            print(e, projection.entityToPrefLabelsAndSynonyms[e])
+
         #print("")
         #for e in projection.entityToSynonyms:
         #    print(e, projection.entityToSynonyms[e])

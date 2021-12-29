@@ -62,8 +62,7 @@ class AnnotationURIs(object):
         #Alternative term       
         self.synonymLabelURIs.add("http://purl.obolibrary.org/obo/IAO_0000118")
 
-
-
+        #Mouse anatomy
         
         #Lexically rich interesting
         self.lexicalAnnotationURIs.update(self.mainLabelURIs)
