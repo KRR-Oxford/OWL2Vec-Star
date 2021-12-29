@@ -41,7 +41,7 @@ annotations/axioms/entities/projection to generate the corpus.
 Standalone Multi
 ~~~~~~~~~~~~~~~~
 
-This command will embed multiple ontologies into one language model, where the documents from
+This command will embed multiple ontologies into one embedding model, where the documents from
 multiple ontologies will be merged. One use case example is embedding all the conference relevant
 ontologies of the OAEI conference track at once.
 
