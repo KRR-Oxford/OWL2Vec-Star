@@ -7,11 +7,8 @@ import gensim
 import sys
 from nltk import word_tokenize
 
-sys.path.append('../../rdf2vec/')
-sys.path.append('../../lib/')
-sys.path.append('.')
-from Evaluator import Evaluator
-from RDF2Vec_Embed import get_rdf2vec_walks
+from owl2vec_star.lib.Evaluator import Evaluator
+from owl2vec_star.lib.RDF2Vec_Embed import get_rdf2vec_walks
 
 parser = argparse.ArgumentParser(description="The is to evaluate RDF2Vec.")
 parser.add_argument("--onto_file", type=str, default="go.train.owl",
