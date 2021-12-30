@@ -11,13 +11,13 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = ['Click>=7.0',
-                'rdflib==4.2.2',
+                'rdflib>=4.2.2',
                 'pyparsing==2.4.7',
-                'gensim~=3.8.0',
+                'gensim>=3.8.0',
                 'scikit-learn~=0.24.2',
                 'nltk~=3.5',
-                'OWLready2~=0.25',
-                'pyrdf2vec~=0.0.3'
+                'OWLready2~=0.25'
+#                'pyrdf2vec~=0.0.3'
                 ]
 
 setup_requirements = []
