@@ -7,11 +7,8 @@ import json
 import sys
 import pickle
 
-sys.path.append('../../rdf2vec/')
-sys.path.append('../../lib/')
-sys.path.append('.')
-from Evaluator import Evaluator
-from RDF2Vec_Embed import get_rdf2vec_embed
+from owl2vec_star.lib.Evaluator import Evaluator
+from owl2vec_star.lib.RDF2Vec_Embed import get_rdf2vec_embed
 
 parser = argparse.ArgumentParser(description="The is to evaluate baselines.")
 parser.add_argument("--onto_file", type=str, default="helis_v1.00.train.owl")
@@ -73,7 +70,7 @@ elif FLAGS.embedding_type.lower() in ['opa2vec', 'onto2vec']:
         sentences.append(sentence)
     if FLAGS.pretrained.lower() == 'none' or FLAGS.pretrained == '':
         sg_v = 1 if FLAGS.model == 'sg' else 0
-        w2v = gensim.models.Word2Vec(sentences, sg=sg_v, min_count=FLAGS.mincount, size=FLAGS.embedsize,
+        w2v = gensim.models.Word2Vec(sentences, sg=sg_v, min_count=FLAGS.mincount, vector_size=FLAGS.embedsize,
                                      window=FLAGS.windsize, workers=multiprocessing.cpu_count())
     else:
         w2v = gensim.models.Word2Vec.load(FLAGS.pretrained)
