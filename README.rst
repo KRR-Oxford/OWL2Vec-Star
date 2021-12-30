@@ -77,8 +77,7 @@ Main Reference
   [`PDF <https://arxiv.org/abs/2009.14654>`_]
   [`@Springer <https://rdcu.be/cmIMh>`_] 
   [`Collection <https://link.springer.com/journal/10994/topicalCollection/AC_f13088dda1f43d317c5acbfdf9439a31>`_]
-  [`Codes <https://github.com/KRR-Oxford/OWL2Vec-Star/releases/tag/OWL2Vec-Star-ML-2021-Journal>`__
-  for the computed results.]
+  [Codes in `package <https://github.com/KRR-Oxford/OWL2Vec-Star/releases/tag/OWL2Vec-Star-ML-2021-Journal>`__ or `folder <https://github.com/KRR-Oxford/OWL2Vec-Star/tree/master/case_studies>`__]
 
 
 Applications with OWL2Vec*
