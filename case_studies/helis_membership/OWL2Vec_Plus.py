@@ -220,8 +220,8 @@ random.shuffle(all_doc)
 
 # learn the embeddings
 if FLAGS.pretrained.lower() == 'none' or FLAGS.pretrained == '':
-    model_ = gensim.models.Word2Vec(all_doc, size=FLAGS.embedsize, window=5, workers=multiprocessing.cpu_count(),
-                                    sg=1, iter=10, negative=25, min_count=1, seed=42)
+    model_ = gensim.models.Word2Vec(all_doc, vector_size=FLAGS.embedsize, window=5, workers=multiprocessing.cpu_count(),
+                                    sg=1, epochs=10, negative=25, min_count=1, seed=42)
 else:
     model_ = gensim.models.Word2Vec.load(FLAGS.pretrained)
     if len(all_doc) > 0:
