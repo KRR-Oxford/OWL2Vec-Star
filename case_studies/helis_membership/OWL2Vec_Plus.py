@@ -55,7 +55,7 @@ def embed(model, instances):
             words = uri_label.get(inst)
             n = 0
             for word in words:
-                if word in model.wv.vocab:
+                if word in model.wv.index_to_key:
                     v += model.wv.get_vector(word)
                     n += 1
             return v / n if n > 0 else v
@@ -65,12 +65,12 @@ def embed(model, instances):
     feature_vectors = []
     for instance in instances:
         if FLAGS.Embed_Out_Words.lower() == 'yes' and FLAGS.Embed_Out_URI.lower() == 'yes':
-            v_uri = model.wv.get_vector(instance) if instance in model.wv.vocab else np.zeros(model.vector_size)
+            v_uri = model.wv.get_vector(instance) if instance in model.wv.index_to_key else np.zeros(model.vector_size)
             v_word = word_embeding(inst=instance)
             feature_vectors.append(np.concatenate((v_uri, v_word)))
 
         elif FLAGS.Embed_Out_Words.lower() == 'no' and FLAGS.Embed_Out_URI.lower() == 'yes':
-            v_uri = model.wv.get_vector(instance) if instance in model.wv.vocab else np.zeros(model.vector_size)
+            v_uri = model.wv.get_vector(instance) if instance in model.wv.index_to_key else np.zeros(model.vector_size)
             feature_vectors.append(v_uri)
 
         elif FLAGS.Embed_Out_Words.lower() == 'yes' and FLAGS.Embed_Out_URI.lower() == 'no':

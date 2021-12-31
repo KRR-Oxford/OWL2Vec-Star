@@ -78,10 +78,10 @@ elif FLAGS.embedding_type.lower() in ['opa2vec', 'onto2vec']:
         w2v.build_vocab(sentences, update=True)
         w2v.train(sentences, total_examples=w2v.corpus_count, epochs=100)
 
-    classes_e = [w2v.wv.get_vector(c.lower()) if c.lower() in w2v.wv.vocab else np.zeros(w2v.vector_size)
+    classes_e = [w2v.wv.get_vector(c.lower()) if c.lower() in w2v.wv.index_to_key else np.zeros(w2v.vector_size)
                  for c in classes]
     classes_e = np.array(classes_e)
-    individuals_e = [w2v.wv.get_vector(i.lower()) if i.lower() in w2v.wv.vocab else np.zeros(w2v.vector_size)
+    individuals_e = [w2v.wv.get_vector(i.lower()) if i.lower() in w2v.wv.index_to_key else np.zeros(w2v.vector_size)
                      for i in individuals]
     individuals_e = np.array(individuals_e)
 
