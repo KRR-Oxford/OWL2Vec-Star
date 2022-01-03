@@ -61,10 +61,41 @@ Running command::
 
 Running program::
 
-    $ python OWL2Vec_Standalone.py --config_file default_multi.cfg
+    $ python OWL2Vec_Standalone_Multi.py --config_file default_multi.cfg
 
 Note: Different from the `standalone` command, this command for multiple ontologies does NOT allow
 the pre-calculated or external annotations/axioms/entities/projection.
+
+Accessing Embeddings
+~~~~~~~~~~~~~~~~
+The embedding model is saved in $embedding\_dir (or $cache\_dir/output if $embedding\_dir is not set).
+The class IRI vector can be accessed::
+
+    >> import gensim
+    >> from owlready2 import *
+    >> model = gensim.models.Word2Vec.load(word2vec_embedding_file)
+    >> onto = get_ontology(onto_file).load()
+    >> classes = list(onto.classes())
+    >> c = classes[0]
+    >> c.iri in model.wv.index_to_key
+    >> iri_v = model.wv.get_vector(c.iri)
+
+The class word vector (of words of the class label defined by e.g., rdfs:label) can be accessed in a similar way with averaging::
+
+    >> from nltk import word_tokenize
+    >> from numpy as np
+    >> label = c.label[0]
+    >> text = ' '.join([re.sub(r'https?:\/\/.*[\r\n]*', '', w, flags=re.MULTILINE) for w in label.lower().split()])
+    >> words = [token.lower() for token in word_tokenize(text) if token.isalpha()]
+    >> n = 0
+    >> word_v = np.zeros(model.vector_size)
+    >> for word in words:
+           if word in model.wv.index_to_key:
+               word_v += model.wv.get_vector(word)
+               n += 1
+    >> word_v = word_v / n if n > 0 else word_v
+
+Note: the class IRI vector and the class word vector can be independently used, or concatenated.
 
 Publications
 ------------
