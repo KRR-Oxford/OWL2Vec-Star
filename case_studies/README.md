@@ -1,6 +1,6 @@
 This folder includes codes and data of the paper "OWL2Vec*: Embedding of OWL ontologies",
 i.e., class membership  prediction on HeLis (v1.00), 
-and subsumption prediction on FoodOn (accessed in March 2020, imported ontologies localized) and GO (accessed on 08 August, 2020). 
+and subsumption prediction on FoodOn (accessed in March 2020, imported ontologies localized) and GO (accessed on 08 August, 2020, with deprecated classes deleted). 
 
 #### Unzip ontologies.tar.gz for the ontologies
 
