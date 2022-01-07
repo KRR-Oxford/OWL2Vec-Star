@@ -18,7 +18,7 @@ parser.add_argument('--label_property', type=str, default='http://www.w3.org/200
 parser.add_argument('--train_pos_dup', type=int, default=2)
 parser.add_argument('--train_neg_dup', type=int, default=2)
 parser.add_argument('--use_contextual_candidates', type=bool, default=True)
-parser.add_argument('--word2vec_embedding_file', type=str, default='/Users/jiahen/Data/w2v_model/enwiki_model/word2vec_gensim')
+parser.add_argument('--word2vec_embedding_file', type=str, default='./foodon_subsume/foodon.w2v.model')
 parser.add_argument('--vector_type', type=str, default='word', help='iri, iri_word, word')
 parser.add_argument('--classifier', type=str, default='lr', help='rf,mlp,lr')
 FLAGS, unparsed = parser.parse_known_args()
