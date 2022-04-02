@@ -50,6 +50,9 @@ def standalone(ontology_file, embedding_dir, config_file, uri_doc, lit_doc, mix_
     if 'embedding_dir' not in config['BASIC']:
         config['BASIC']['embedding_dir'] = os.path.join(config['DOCUMENT']['cache_dir'], 'output/')
 
+    if not os.path.exists(config['BASIC']['embedding_dir']):
+        os.mkdir(config['BASIC']['embedding_dir'])
+        
  
     #Call to OWL2Vec*    
     model_ = owl2vec_star.__perform_ontology_embedding(config)
@@ -100,7 +103,10 @@ def standalone_multi(ontology_dir, embedding_dir, config_file, uri_doc, lit_doc,
 
     if 'embedding_dir' not in config['BASIC']:
         config['BASIC']['embedding_dir'] = os.path.join(config['DOCUMENT']['cache_dir'], 'output/')
-
+        
+    if not os.path.exists(config['BASIC']['embedding_dir']):
+        os.mkdir(config['BASIC']['embedding_dir'])
+        
     
     
     #Call to OWL2Vec*
