@@ -142,13 +142,13 @@ def __perform_ontology_embedding(config):
                     #print(uri_to_labels[e])
                     uri_to_labels[e].add(tuple(pre_process_words(words=label.split())))
 		
-		if e in projection.entityToSynonyms and len(projection.entityToSynonyms[e]) > 0:
-			for label in projection.getSynonymLabelsForEntity(e):
-			    #print("Syn: " + label)
-			    if e not in uri_to_labels:
-				uri_to_labels[e]=set()
-			    #We add a list of words in the set
-			    uri_to_labels[e].add(tuple(pre_process_words(words=label.split())))
+                if e in projection.entityToSynonyms and len(projection.entityToSynonyms[e]) > 0:
+                    for label in projection.getSynonymLabelsForEntity(e):
+                        #print("Syn: " + label)
+                        if e not in uri_to_labels:
+                            uri_to_labels[e]=set()
+                        #We add a list of words in the set
+                        uri_to_labels[e].add(tuple(pre_process_words(words=label.split())))
                     
         for e in entities:
             if e in projection.entityToAllLexicalLabels:
