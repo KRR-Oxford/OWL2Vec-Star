@@ -48,7 +48,7 @@ def standalone(ontology_file, embedding_dir, config_file, uri_doc, lit_doc, mix_
         os.mkdir(config['DOCUMENT']['cache_dir'])
 
     if 'embedding_dir' not in config['BASIC']:
-        config['BASIC']['embedding_dir'] = os.path.join(config['DOCUMENT']['cache_dir'], 'output')
+        config['BASIC']['embedding_dir'] = os.path.join(config['DOCUMENT']['cache_dir'], 'output/')
 
  
     #Call to OWL2Vec*    
@@ -99,7 +99,7 @@ def standalone_multi(ontology_dir, embedding_dir, config_file, uri_doc, lit_doc,
         os.mkdir(config['DOCUMENT']['cache_dir'])
 
     if 'embedding_dir' not in config['BASIC']:
-        config['BASIC']['embedding_dir'] = os.path.join(config['DOCUMENT']['cache_dir'], 'output')
+        config['BASIC']['embedding_dir'] = os.path.join(config['DOCUMENT']['cache_dir'], 'output/')
 
     
     
