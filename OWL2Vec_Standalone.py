@@ -5,6 +5,9 @@ import random
 import multiprocessing
 import gensim
 import configparser
+import nltk
+
+nltk.download('punkt')
 
 from owl2vec_star.lib.RDF2Vec_Embed import get_rdf2vec_walks
 from owl2vec_star.lib.Label import pre_process_words, URI_parse
@@ -13,6 +16,7 @@ from owl2vec_star.lib.Onto_Projection import Reasoner, OntologyProjection
 parser = argparse.ArgumentParser()
 parser.add_argument("--ontology_file", type=str, default=None, help="The input ontology for embedding")
 parser.add_argument("--embedding_dir", type=str, default=None, help="The output embedding directory")
+parser.add_argument("--embedding_file", type=str, default=None, help="The output embedding file")
 parser.add_argument("--config_file", type=str, default='default.cfg', help="Configuration file")
 parser.add_argument("--URI_Doc", help="Using URI document", action="store_true")
 parser.add_argument("--Lit_Doc", help="Using literal document", action="store_true")
@@ -27,6 +31,8 @@ if FLAGS.ontology_file is not None:
     config['BASIC']['ontology_file'] = FLAGS.ontology_file
 if FLAGS.embedding_dir is not None:
     config['BASIC']['embedding_dir'] = FLAGS.embedding_dir
+if FLAGS.embedding_file is not None:
+    config['BASIC']['embedding_file'] = FLAGS.embedding_file
 if FLAGS.URI_Doc:
     config['DOCUMENT']['URI_Doc'] = 'yes'
 if FLAGS.Lit_Doc:
@@ -223,7 +229,10 @@ else:
         model_.min_count = int(config['MODEL']['min_count'])
         model_.build_vocab(all_doc, update=True)
         model_.train(all_doc, total_examples=model_.corpus_count, epochs=int(config['MODEL']['epoch']))
-
-model_.save(config['BASIC']['embedding_dir'])
+# Save model
+embedding_dir = config['BASIC']['embedding_dir']
+if not os.path.exists(embedding_dir):
+    os.makedirs(embedding_dir)
+model_.save(embedding_dir + config['BASIC']['embedding_file'])
 print('Time for learning the embedding model: %s seconds' % (time.time() - start_time))
 print('Model saved. Done!')
