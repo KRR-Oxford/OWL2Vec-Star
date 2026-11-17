@@ -35,10 +35,22 @@ if FLAGS.Mix_Doc:
     config['DOCUMENT']['Mix_Doc'] = 'yes'
 if 'cache_dir' not in config['DOCUMENT']:
     config['DOCUMENT']['cache_dir'] = './cache'
-if not os.path.exists(config['DOCUMENT']['cache_dir']):
-    os.mkdir(config['DOCUMENT']['cache_dir'])
 if 'embedding_dir' not in config['BASIC']:
     config['BASIC']['embedding_dir'] = os.path.join(config['DOCUMENT']['cache_dir'], 'output')
+
+# expand '~' in path settings (os/gensim functions do not do it themselves)
+for section, key in [('BASIC', 'ontology_dir'), ('BASIC', 'embedding_dir'),
+                     ('DOCUMENT', 'cache_dir'), ('MODEL', 'pre_train_model')]:
+    if key in config[section]:
+        config[section][key] = os.path.expanduser(config[section][key])
+
+os.makedirs(config['DOCUMENT']['cache_dir'], exist_ok=True)
+embedding_parent = os.path.dirname(config['BASIC']['embedding_dir'])
+if embedding_parent:
+    os.makedirs(embedding_parent, exist_ok=True)
+if 'pre_train_model' in config['MODEL'] and not os.path.exists(config['MODEL']['pre_train_model']):
+    print('WARNING: pre_train_model %s not found; training from scratch instead of fine-tuning'
+          % config['MODEL']['pre_train_model'])
 
 start_time = time.time()
 
