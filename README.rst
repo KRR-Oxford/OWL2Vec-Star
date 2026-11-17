@@ -97,6 +97,16 @@ The class word vector (of words of the class label defined by e.g., rdfs:label) 
 
 Note: the class IRI vector and the class word vector can be independently used, or concatenated.
 
+Ontology Search and Evaluation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Semantic search over the classes of many ontologies with FAISS, and evaluation of search
+quality against the OAEI Conference reference alignments. See `ONTOLOGY_SEARCH.rst <ONTOLOGY_SEARCH.rst>`__.
+
+Running programs::
+
+    $ python ontology_search.py
+    $ python evaluate_search.py
+
 Publications
 ------------
 

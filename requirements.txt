@@ -2,6 +2,7 @@ Click==8.0
 contourpy==1.1.1
 cycler==0.12.1
 Cython==3.0.7
+faiss-cpu==1.8.0
 fonttools==4.47.0
 gensim==4.3.2
 importlib-resources==6.1.1
